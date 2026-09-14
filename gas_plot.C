@@ -10,7 +10,7 @@ void gas_plot() {
   using namespace Garfield;
 
   MediumMagboltz* gas = new MediumMagboltz();
-  if (!gas->LoadGasFile("ar_90_ch4_10.gas")) {
+  if (!gas->LoadGasFile("ar_90_ch4_10_11142025.gas")) {
     std::cerr << "Error: could not load gas table." << std::endl;
   }
 
@@ -25,7 +25,7 @@ void gas_plot() {
   double bx = 0., by = 0., bz = 0.; // No magnetic field
   double pressureTorr = gas->GetPressure() / 760.; // Torr
 
- for (double e = 50.; e <= 1000.; e += 50.) {
+ for (double e = 0.; e <= 250000.; e += 50.) {
    double vx, vy, vz;
    if (!gas->ElectronVelocity(e, 0., 0., bx, by, bz, vx, vy, vz)) continue;
 
@@ -79,7 +79,7 @@ void gas_plot() {
  gDT->SetLineColor(kGreen + 2);
  gDT->Draw("L SAME");
 
- /*
+ 
  // Townsend and attachment
  c1->cd(3);
  TGraph* gAlpha = new TGraph(redField.size(), redField.data(), townsend.data());
@@ -90,7 +90,7 @@ void gas_plot() {
  TGraph* gEta = new TGraph(redField.size(), redField.data(), attachment.data());
  gEta->SetLineColor(kOrange + 2);
  gEta->Draw("L SAME");
- */
+ 
  c1->Update();
 
   

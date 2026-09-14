@@ -1,16 +1,17 @@
 #!/bin/bash
-#SBATCH --time=10:00:00          # total expected computing time
-#SBATCH --ntasks=1
+#SBATCH --time=04:00:00          # total expected computing time
+#SBATCH --nodes=10                # number of nodes
 #SBATCH --cpus-per-task=16       # number of CPUs
+#SBATCH --mem-per-cpu=16G
 #SBATCH --output=LOG.log
 #SBATCH --job-name=myjobname
-#SBATCH --partition=physics
+#SBATCH --partition=secondary    # <-- use this one
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=myemail
 
 # -------- Load environment --------
 module load miniconda3
 source activate rootenv
-export LD_LIBRARY_PATH=/u/athirak2/garfieldpp/install/lib64:$LD_LIBRARY_PATH
-# --- Run the macro ---
+
+# -------- Run your executable --------
 root -l -b -q generate_gastable.C
