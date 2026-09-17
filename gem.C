@@ -62,7 +62,7 @@ int main(int argc, char *argv[]) {
 
   MediumMagboltz* gas = new MediumMagboltz();
   gas->LoadGasFile("/u/athirak2/Gem/ar_90_ch4_10_11142025.gas");
-  gas->EnableDrift();
+  //gas->EnableDrift();
   gas->LoadIonMobility("/u/athirak2/garfieldpp/install/share/Garfield/Data/IonMobility_Ar+_Ar.txt");  
   
   // Create analytic field component
@@ -239,11 +239,12 @@ int main(int argc, char *argv[]) {
      hSignal->Draw();
      */
      
-     std::cout << "Simulation finished.\n";
-
+     std::cout << "Loading finished.\n";
      
      app.Run(true);
-
+     
+     std::cout << "Simulation done.\n";
+     
      return 0;
 }
      
