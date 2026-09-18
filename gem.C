@@ -62,7 +62,7 @@ int main(int argc, char *argv[]) {
 
   MediumMagboltz* gas = new MediumMagboltz();
   gas->LoadGasFile("/u/athirak2/Gem/ar_90_ch4_10_11142025.gas");
-  //gas->EnableDrift();
+  gas->EnableDrift();
   gas->LoadIonMobility("/u/athirak2/garfieldpp/install/share/Garfield/Data/IonMobility_Ar+_Ar.txt");  
   
   // Create analytic field component
@@ -231,7 +231,8 @@ int main(int argc, char *argv[]) {
   
     
      
-     /*TCanvas* c6 = new TCanvas("c6", "Cluster Gain and Signal", 1000, 500);
+     /*
+     TCanvas* c6 = new TCanvas("c6", "Cluster Gain and Signal", 1000, 500);
      c6->Divide(2,1);
      c6->cd(1);
      hGain->Draw();
@@ -239,11 +240,9 @@ int main(int argc, char *argv[]) {
      hSignal->Draw();
      */
      
-     std::cout << "Loading finished.\n";
+     std::cout << "Simulation done.\n";
      
      app.Run(true);
-     
-     std::cout << "Simulation done.\n";
      
      return 0;
 }
